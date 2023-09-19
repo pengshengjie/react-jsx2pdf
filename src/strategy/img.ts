@@ -1,10 +1,10 @@
-import type { Rule, Handler } from ".";
+import { Handler, Rule } from '.';
 
 export const imgRule: Rule = (element) => element.type === 'p-img';
 export const imgHandler: Handler = (element) => {
-  const {src, ...rest} = element.props;
+  const { src, ...rest } = element.props;
   return {
     ...rest,
     image: src,
-  }
-}
+  };
+};

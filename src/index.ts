@@ -1,32 +1,33 @@
-import type { ReactNode } from 'react';
 import {
-  ContentText,
-  ContentImage,
-  ContentQr,
   ContentColumns,
-  ContentTable,
-  ContentOrderedList,
-  ContentUnorderedList,
+  ContentImage,
   ContentLink,
-  TDocumentDefinitions,
+  ContentOrderedList,
+  ContentQr,
   ContentStack,
+  ContentTable,
+  ContentText,
+  ContentUnorderedList,
   Table,
+  TDocumentDefinitions,
 } from 'pdfmake/interfaces';
+import { ReactNode } from 'react';
 
-export { jsxToPdfDocument, parseElement } from './jsxToPdfDocument'
-export { registerStrategy, unregisterStrategy } from './strategy'
-export const html = String.raw
+export { jsxToPdfDocument, parseElement } from './jsxToPdfDocument';
+export { registerStrategy, unregisterStrategy } from './strategy';
+export const html = String.raw;
 
-type WithChildren<T extends {}, K extends string | number | symbol> = Omit<
-  T & { children?: ReactNode },
-  K
->;
+type WithChildren<
+  T extends Record<any, any>,
+  K extends string | number | symbol,
+> = Omit<T & { children?: ReactNode }, K>;
 
 type Src = {
-  src: string
-}
+  src: string;
+};
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
       'p-text': WithChildren<ContentText, 'text'>;

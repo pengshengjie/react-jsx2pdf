@@ -1,16 +1,16 @@
-import { primitiveRule, primitiveHandler } from './primitive';
-import { textRule, textHandler } from './text';
-import { tableRule, tableHandler, tdRule, tdHandler } from './table';
-import { imgRule, imgHandler } from './img';
-import { colRule, colHandler } from './columns';
-import { ulRule, ulHandler } from './ul';
-import { olRule, olHandler } from './ol';
-import { docRule, docHandler } from './document';
-import { stackRule, stackHandler } from './stack';
-import { linkRule, linkHandler } from './link';
-import { svgRule, svgHandler } from './svg';
+import { colHandler, colRule } from './columns';
+import { docHandler, docRule } from './document';
+import { imgHandler, imgRule } from './img';
+import { linkHandler, linkRule } from './link';
+import { olHandler, olRule } from './ol';
+import { primitiveHandler, primitiveRule } from './primitive';
+import { stackHandler, stackRule } from './stack';
+import { svgHandler, svgRule } from './svg';
+import { tableHandler, tableRule, tdHandler, tdRule } from './table';
+import { textHandler, textRule } from './text';
+import { ulHandler, ulRule } from './ul';
 
-import type { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 export type Rule = (element: ReactElement) => boolean;
 export type Handler = (element: ReactElement) => any;
@@ -32,15 +32,10 @@ strategy.set(stackRule, stackHandler);
 strategy.set(linkRule, linkHandler);
 strategy.set(svgRule, svgHandler);
 
-export const registerStrategy = (
-  rule: Rule,
-  handler: Handler,
-) => {
+export const registerStrategy = (rule: Rule, handler: Handler) => {
   strategy.set(rule, handler);
 };
 
-export const unregisterStrategy = (
-  rule: Rule,
-) => {
+export const unregisterStrategy = (rule: Rule) => {
   strategy.delete(rule);
 };

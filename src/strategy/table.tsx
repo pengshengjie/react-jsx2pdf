@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
-import { isObject, pickKeyByObject, toArray } from '../utils';
+import React from 'react';
 import { parseElement } from '../jsxToPdfDocument';
+import { isObject, pickKeyByObject, toArray } from '../utils';
 
-import type { Rule, Handler } from '.';
+import { Handler, Rule } from '.';
 
 export const tdRule: Rule = (element) => element.type === 'p-td';
 export const tdHandler: Handler = (element) => {
@@ -34,9 +34,11 @@ export const tableHandler: Handler = (element) => {
         .filter((e) => e.type === 'p-tr' || e.type === 'p-th')
         .map((th) => {
           const { children, ...thProps } = th.props;
-          const tds = toArray(th.props.children)
+          const tds = toArray(children)
             .filter((e) => e.type === 'p-td')
-            .map((td) => <p-td {...thProps} {...td.props}></p-td>);
+            .map((td, idx) => (
+              <p-td key={idx} {...thProps} {...td.props}></p-td>
+            ));
           return parseElement(tds);
         }),
     },

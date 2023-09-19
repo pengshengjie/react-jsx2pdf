@@ -27,7 +27,8 @@ describe('document', () => {
       },
     });
   });
-  it('document more props', () => {
+
+  it('document more props other', () => {
     const jsx = (
       <p-document
         pageSize="A4"

@@ -1,5 +1,4 @@
-import React from 'react';
-import type { Rule, Handler } from '.';
+import { Handler, Rule } from '.';
 
 import { parseElement } from '../jsxToPdfDocument';
 import { pickKeyByObject } from '../utils';
@@ -7,8 +6,7 @@ import { pickKeyByObject } from '../utils';
 export const linkRule: Rule = (element) => element.type === 'p-link';
 
 export const linkHandler: Handler = (element) => {
-  const { src, linkToPage, linkToDestination, children } =
-    element.props;
+  const { src, linkToPage, linkToDestination, children } = element.props;
 
   return {
     ...pickKeyByObject(

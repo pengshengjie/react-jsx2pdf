@@ -1,32 +1,40 @@
 {
   "name": "react-jsx2pdf",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "react-jsx2pdf",
+  "keywords": [
+    "pdf",
+    "jsx",
+    "react",
+    "pdf-generation",
+    "pdfmake"
+  ],
+  "homepage": "https://github.com/pengshengjie/react-jsx2pdf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pengshengjie/react-jsx2pdf.git"
+  },
+  "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "homepage": "https://github.com/pengshengjie/react-jsx2pdf",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "npm run dev",
-    "vite": "vite example",
-    "dev": "dumi dev",
     "build": "father build",
     "build:watch": "father dev",
+    "dev": "dumi dev",
     "docs:build": "dumi build",
-    "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "test": "jest"
+    "start": "npm run dev",
+    "test": "jest",
+    "vite": "vite example"
   },
-  "authors": [
-    "271533323@qq.com"
-  ],
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -48,15 +56,6 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "@types/pdfmake": ">=0.2.2",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0",
-    "pdfmake": ">=0.2.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.15",
@@ -80,15 +79,16 @@
     "ts-jest": "^29.1.1",
     "vite": "^4.4.9"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pengshengjie/react-jsx2pdf.git"
+  "peerDependencies": {
+    "@types/pdfmake": ">=0.2.2",
+    "pdfmake": ">=0.2.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
-  "keywords": [
-    "pdf",
-    "jsx",
-    "react",
-    "pdf-generation",
-    "pdfmake"
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "271533323@qq.com"
   ]
 }

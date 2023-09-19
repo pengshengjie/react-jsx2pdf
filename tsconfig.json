@@ -11,6 +11,8 @@
       "pdfmake-react": ["src"],
       "pdfmake-react/*": ["src/*", "*"]
     },
+    "strict": false, // 设置成 false 可以关闭一些严格的类型检查
+    "noImplicitAny": false // 允许 'any' 类型推断而不报错
   },
   "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
 }

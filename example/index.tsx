@@ -3,7 +3,7 @@ import React from 'react';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 
-// import { jsxToPdfDocument, html } from '../src';
+import { html, jsxToPdfDocument } from '../src';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -11,8 +11,7 @@ const jsx = (
   <p-document
     pageSize="A4"
     images={{
-      baidu:
-        'https://pengshengjie.github.io/image/pdf-log.png',
+      baidu: 'https://pengshengjie.github.io/image/pdf-log.png',
     }}
   >
     <p-text color="red">this is a text</p-text>
@@ -33,7 +32,7 @@ const jsx = (
         <p-td>xxxxxxx</p-td>
       </p-tr>
     </p-table>
-    <p-img width={400}  src="baidu"></p-img>
+    <p-img width={400} src="baidu"></p-img>
     <p-ul>
       <p-text>this is a ul 1</p-text>
       <p-text>this is a ul 1</p-text>
@@ -46,16 +45,20 @@ const jsx = (
     </p-ol>
     <p-text>Svg</p-text>
     <p-svg>
-      {html`<svg class="gb_i" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>`}
+      {html`<svg class="gb_i" focusable="false" viewBox="0 0 24 24">
+        <path
+          d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
+        ></path>
+      </svg>`}
     </p-svg>
 
-    
-    <p-link src='https://www.baidu.com'>go to baidu</p-link>
+    <p-link src="https://www.baidu.com">go to baidu</p-link>
   </p-document>
 );
 
 const pdfDocument = jsxToPdfDocument(jsx);
 
 pdfMake.createPdf(pdfDocument).getBlob((blob) => {
-  document.getElementById('iframe').src = URL.createObjectURL(blob);
+  (document.getElementById('ifa') as HTMLIFrameElement).src =
+    URL.createObjectURL(blob);
 });
