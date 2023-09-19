@@ -1,4 +1,5 @@
-![logo](https://pengshengjie.github.io/image/pdf-log.png)
+![pdf-log](https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/b3600b0b-8ef2-490b-b9a8-e575ea073294)
+
 
 Generate modular PDFs via [pdfmake](http://pdfmake.org/) using JSX.
 
@@ -17,7 +18,7 @@ const jsx = (
     pageSize="A4"
     images={{
       baidu:
-        'https://pengshengjie.github.io/image/pdf-log.png',
+        'https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/b3600b0b-8ef2-490b-b9a8-e575ea073294',
     }}
   >
     <p-text color="red">this is a text</p-text>
@@ -38,7 +39,7 @@ const jsx = (
         <p-td>xxxxxxx</p-td>
       </p-tr>
     </p-table>
-    <p-img width={400}  src="baidu"></p-img>
+    <p-img width={400}  src="logo"></p-img>
     <p-ul>
       <p-text>this is a ul 1</p-text>
       <p-text>this is a ul 1</p-text>
@@ -53,8 +54,6 @@ const jsx = (
     <p-svg>
       {html`<svg class="gb_i" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>`}
     </p-svg>
-
-    
     <p-link src='https://www.baidu.com'>go to baidu</p-link>
   </p-document>
 );
@@ -66,6 +65,7 @@ pdfMake.createPdf(pdfDocument).getBlob((blob) => {
 });
 
 ```
+![image](https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/e900d827-df4a-4189-82c2-e92c98133b6e)
 
 ## License
 
