@@ -8,6 +8,7 @@ import { olRule, olHandler } from './ol';
 import { docRule, docHandler } from './document';
 import { stackRule, stackHandler } from './stack';
 import { linkRule, linkHandler } from './link';
+import { svgRule, svgHandler } from './svg';
 
 import type { ReactElement } from 'react';
 
@@ -29,6 +30,7 @@ strategy.set(olRule, olHandler);
 strategy.set(docRule, docHandler);
 strategy.set(stackRule, stackHandler);
 strategy.set(linkRule, linkHandler);
+strategy.set(svgRule, svgHandler);
 
 export const registerStrategy = (
   rule: Rule,

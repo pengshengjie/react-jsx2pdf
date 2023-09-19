@@ -1,75 +1,61 @@
 import React from 'react';
+
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 
-import { jsxToPdfDocument } from '../src';
+// import { jsxToPdfDocument, html } from '../src';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const jsx = (
-  <p-document pageSize="A4">
-    <p-table layout="" widths={['*', '*', '*']} fillColor="red">
-      <p-tr lineHeight={3}>
-        <p-td color="red">
-          <p-text color="red">123</p-text>
-          312
-        </p-td>
-        <p-td>
-          <p-text color="red">123</p-text>
-          312
-        </p-td>
-        <p-td>312</p-td>
+  <p-document
+    pageSize="A4"
+    images={{
+      baidu:
+        'https://pengshengjie.github.io/image/pdf-log.png',
+    }}
+  >
+    <p-text color="red">this is a text</p-text>
+    <p-table widths={['*', '*', '*']}>
+      <p-th fillColor="blue" color="#fff">
+        <p-td>name</p-td>
+        <p-td>age</p-td>
+        <p-td>adress</p-td>
+      </p-th>
+      <p-tr>
+        <p-td color="#f0f">Tom</p-td>
+        <p-td>18</p-td>
+        <p-td>xxxxxx</p-td>
       </p-tr>
       <p-tr>
-        <p-td>312</p-td>
-        <p-td>312</p-td>
-        <p-td>312</p-td>
+        <p-td color="#f0f">Bob</p-td>
+        <p-td>21</p-td>
+        <p-td>xxxxxxx</p-td>
       </p-tr>
-      <p-tr>
-        <p-td>312</p-td>
-        <p-td>312</p-td>
-        <p-td>33323</p-td>
-      </p-tr>
-      <>
-        <p-th fillColor="red">
-          <>
-            <p-td>312</p-td>
-            <p-td>312</p-td>
-            <p-td>
-
-              <p-table>
-                <p-tr>
-                  <p-td>xxx</p-td>
-                  <p-td>xxx</p-td>
-                  <p-td>xxx</p-td>
-                </p-tr>
-                <p-tr>
-                  <p-td>xx</p-td>
-                  <p-td>xx</p-td>
-                  <p-td>xxx</p-td>
-                </p-tr>
-                <p-tr fillColor="green">
-                  <p-td>xxx</p-td>
-                  <p-td>xx</p-td>
-                  <p-td>xx</p-td>
-                </p-tr>
-              </p-table>
-            </p-td>
-          </>
-        </p-th>
-      </>
     </p-table>
-    {/* <p-text>1</p-text>
-  <p-text>2</p-text> */}
+    <p-img width={400}  src="baidu"></p-img>
+    <p-ul>
+      <p-text>this is a ul 1</p-text>
+      <p-text>this is a ul 1</p-text>
+      <p-text>this is a ul 1</p-text>
+    </p-ul>
+    <p-ol>
+      <p-text>this is a ol 1</p-text>
+      <p-text>this is a ol 1</p-text>
+      <p-text>this is a ol 1</p-text>
+    </p-ol>
+    <p-text>Svg</p-text>
+    <p-svg>
+      {html`<svg class="gb_i" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>`}
+    </p-svg>
+
+    
+    <p-link src='https://www.baidu.com'>go to baidu</p-link>
   </p-document>
 );
-console.log('jsx', jsx);
-const doc = jsxToPdfDocument(jsx);
 
-console.log(doc.content.table.body);
-console.table(doc.content.table.body);
+const pdfDocument = jsxToPdfDocument(jsx);
 
-pdfMake.createPdf(jsxToPdfDocument(jsx)).getBlob((blob) => {
-  (document.getElementById('ifa') as HTMLIFrameElement).src =
-    URL.createObjectURL(blob);
+pdfMake.createPdf(pdfDocument).getBlob((blob) => {
+  document.getElementById('iframe').src = URL.createObjectURL(blob);
 });

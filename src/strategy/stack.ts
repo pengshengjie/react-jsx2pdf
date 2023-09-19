@@ -9,7 +9,7 @@ export const stackHandler: Handler = (element) => {
   const {children, ...rest} = element.props;
   const result = parseElement(element.props.children) || '';
   return {
+    ...rest,
     stack: Array.isArray(result) ? result : [result],
-    ...rest
   }
 }

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { isObject, toArray } from '../utils';
+import { isObject, pickKeyByObject, toArray } from '../utils';
 import { parseElement } from '../jsxToPdfDocument';
 
 import type { Rule, Handler } from '.';
@@ -27,6 +27,7 @@ export const tableHandler: Handler = (element) => {
   const { children, layout, ...rest } = element!.props;
   return {
     layout,
+    ...pickKeyByObject({ layout }, 'layout'),
     table: {
       ...rest,
       body: toArray(children)
