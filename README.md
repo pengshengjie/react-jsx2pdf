@@ -1,4 +1,7 @@
-![pdf-log](https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/b3600b0b-8ef2-490b-b9a8-e575ea073294)
+
+ ![pdf-log](https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/b3600b0b-8ef2-490b-b9a8-e575ea073294)
+
+ [![NPM version](https://img.shields.io/npm/v/react-jsx2pdf.svg?style=flat)](https://npmjs.org/package/react-jsx2pdf) [![NPM downloads](http://img.shields.io/npm/dm/react-jsx2pdf.svg?style=flat)](https://npmjs.org/package/react-jsx2pdf)
 
 Generate modular PDFs via [pdfmake](http://pdfmake.org/) using JSX.
 
