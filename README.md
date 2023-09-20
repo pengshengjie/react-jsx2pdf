@@ -289,8 +289,6 @@ const doc = (
 );
 ```
 
-html`<svg></svg>` for hight
-
 ## Conponent
 
 ### base Component
