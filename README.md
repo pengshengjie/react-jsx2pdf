@@ -99,7 +99,7 @@ Intelligent grammar prompt without configuration
 ## Why not jsx-pdf
 ### Different
 
-[jsx-pdf](https://github.com/schibsted/jsx-pdf) is an Jsx-pdf is an excellent library, but it requires configuration of tsconfig and babel, while reat-jsx2pdf does not require configuration library, but it requires configuration of tsconfig and babel, while reat-jsx2pdf does not require configuration,`react-jsx2pdf` is a runtime library, and jsx-pdf is a compiletime library。
+[jsx-pdf](https://github.com/schibsted/jsx-pdf) is an excellent library, but it requires configuration of tsconfig and babel, while reat-jsx2pdf does not require configuration,`react-jsx2pdf` is a runtime library, and jsx-pdf is a compiletime library。
 
 ### Similarities
 The API of this library is similar to `jsx-pdf`
