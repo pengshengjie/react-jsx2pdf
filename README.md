@@ -237,8 +237,7 @@ const doc = (
   </p-docment>
 );
 ```
-
-html``for Tempalte hight html
+You can use strings directly without using HTML`` syntax. HTML is for highlighting syntax and better editing of HTML
 
 ```jsx
 const svg = `<svg
