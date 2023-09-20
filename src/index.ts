@@ -20,7 +20,7 @@ export const html = String.raw;
 type WithChildren<
   T extends Record<any, any>,
   K extends string | number | symbol,
-> = Omit<T & { children?: ReactNode }, K>;
+> = Omit<T & { children?: ReactNode }, K> & { key?: string | number | null };
 
 type Src = {
   src: string;
