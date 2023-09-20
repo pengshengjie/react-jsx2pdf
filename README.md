@@ -79,7 +79,7 @@ pdfMake.createPdf(pdfDocument).getBlob((blob) => {
 
 ## Quick Start
 ```cmd
-npm run react-jsx2pdf@beta
+npm install react-jsx2pdf@beta
 ```
 ```jsx
 import { jsxToPdfDocument } from 'react-jsx2pdf';
