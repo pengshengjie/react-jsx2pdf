@@ -72,10 +72,10 @@ pdfMake.createPdf(pdfDocument).getBlob((blob) => {
 
 ## Feature
 
-🎉 Latest Jsx to PDF
-📦 Out-of-the-box
-❄️ Support TypeScript
-🕸 Customizable
++ 🎉 Latest Jsx to PDF
++ 📦 Out-of-the-box
++ ❄️ Support TypeScript
++ 🕸 Customizable
 
 ## Quick Start
 
