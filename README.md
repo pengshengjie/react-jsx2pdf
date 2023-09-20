@@ -89,6 +89,17 @@ const doc = <p-document>Hello World</p-document>;
 console.log(jsxToPdfDocument(doc));
 ```
 
+## Typescript
+Intelligent grammar prompt without configuration
+<img width="333" alt="b217281fdf57fe6b0f4301b5a634e51" src="https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/7c3e63af-f671-4812-93af-f18b657e640f">
+<img width="315" alt="8bb3bd2e2b57a4df476e58548b268fb" src="https://github.com/pengshengjie/react-jsx2pdf/assets/117100743/774be2c0-fae2-41b3-9b2d-84c91f1b4ee9">
+## Why not jsx-pdf
+### Different
+[jsx-pdf](https://github.com/schibsted/jsx-pdf) is an Jsx-pdf is an excellent library, but it requires configuration of tsconfig and babel, while reat-jsx2pdf does not require configuration library, but it requires configuration of tsconfig and babel, while reat-jsx2pdf does not require configuration,`react-jsx2pdf` is a runtime library, and jsx-pdf is a compiletime library。
+### Similarities
+The API of this library is similar to `jsx-pdf`
+
+All based on [pdfmake](http://pdfmake.org/) encapsulation
 ## Example
 
 ### text
