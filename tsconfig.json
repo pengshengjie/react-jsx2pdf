@@ -5,14 +5,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "pdfmake-react": ["src"],
-      "pdfmake-react/*": ["src/*", "*"]
-    },
-    "strict": false, // 设置成 false 可以关闭一些严格的类型检查
-    "noImplicitAny": false // 允许 'any' 类型推断而不报错
+    "baseUrl": "./"
   },
   "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
 }

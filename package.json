@@ -15,6 +15,7 @@
     "url": "https://github.com/pengshengjie/react-jsx2pdf.git"
   },
   "license": "MIT",
+  "unpkg": "dist/react-jsx2pdf.min.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -57,6 +58,12 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "@types/pdfmake": ">=0.2.2",
+    "pdfmake": "^2.0.0 || ^3.0.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.15",
     "@commitlint/cli": "^17.1.2",
@@ -81,14 +88,12 @@
   },
   "peerDependencies": {
     "@types/pdfmake": ">=0.2.2",
-    "pdfmake": ">=0.2.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "authors": [
-    "271533323@qq.com"
+    "PengShengjie <271533323@qq.com>"
   ]
 }

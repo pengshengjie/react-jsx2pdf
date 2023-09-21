@@ -4,10 +4,12 @@ import { imgHandler, imgRule } from './img';
 import { linkHandler, linkRule } from './link';
 import { olHandler, olRule } from './ol';
 import { primitiveHandler, primitiveRule } from './primitive';
+import { qrHandler, qrRule } from './qr';
 import { stackHandler, stackRule } from './stack';
 import { svgHandler, svgRule } from './svg';
 import { tableHandler, tableRule, tdHandler, tdRule } from './table';
 import { textHandler, textRule } from './text';
+import { tocHandler, tocRule } from './toc';
 import { ulHandler, ulRule } from './ul';
 
 import { ReactElement } from 'react';
@@ -31,6 +33,8 @@ strategy.set(docRule, docHandler);
 strategy.set(stackRule, stackHandler);
 strategy.set(linkRule, linkHandler);
 strategy.set(svgRule, svgHandler);
+strategy.set(qrRule, qrHandler);
+strategy.set(tocRule, tocHandler);
 
 export const registerStrategy = (rule: Rule, handler: Handler) => {
   strategy.set(rule, handler);

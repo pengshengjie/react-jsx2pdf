@@ -1,6 +1,6 @@
 import React from 'react';
 import { parseElement } from '../jsxToPdfDocument';
-import { isObject, pickKeyByObject, toArray } from '../utils';
+import { is2DArray, isObject, pickKeyByObject, toArray } from '../utils';
 
 import { Handler, Rule } from '.';
 
@@ -25,22 +25,27 @@ export const tdHandler: Handler = (element) => {
 export const tableRule: Rule = (element) => element.type === 'p-table';
 export const tableHandler: Handler = (element) => {
   const { children, layout, ...rest } = element!.props;
+
+  const body = toArray(children)
+    .filter((e) => e.type === 'p-tr' || e.type === 'p-th')
+    .map((th) => {
+      const { children, ...thProps } = th.props;
+      const tds = toArray(children)
+        .filter((e) => e.type === 'p-td')
+        .map((td, idx) => <p-td key={idx} {...thProps} {...td.props}></p-td>);
+      return parseElement(tds);
+    }) as any;
+
+  const is2D = is2DArray(body);
+  if (!is2D) {
+    throw new Error('the table body is not 2D Array');
+  }
   return {
     layout,
     ...pickKeyByObject({ layout }, 'layout'),
     table: {
       ...rest,
-      body: toArray(children)
-        .filter((e) => e.type === 'p-tr' || e.type === 'p-th')
-        .map((th) => {
-          const { children, ...thProps } = th.props;
-          const tds = toArray(children)
-            .filter((e) => e.type === 'p-td')
-            .map((td, idx) => (
-              <p-td key={idx} {...thProps} {...td.props}></p-td>
-            ));
-          return parseElement(tds);
-        }),
+      body,
     },
   };
 };

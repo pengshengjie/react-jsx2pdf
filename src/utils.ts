@@ -28,3 +28,10 @@ export const pickKeyByObject = <T extends object>(
     return pre;
   }, initObj);
 };
+
+export const is2DArray = (body: ReactElement[][]) => {
+  const firstRowLength = body[0].length;
+  return body.every((row) => {
+    return row.length === firstRowLength;
+  });
+};

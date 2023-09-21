@@ -7,8 +7,10 @@ import {
   ContentStack,
   ContentTable,
   ContentText,
+  ContentTocItem,
   ContentUnorderedList,
   Table,
+  TableOfContent,
   TDocumentDefinitions,
 } from 'pdfmake/interfaces';
 import { ReactNode } from 'react';
@@ -30,19 +32,20 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      'p-text': WithChildren<ContentText, 'text'>;
+      'p-text': WithChildren<ContentText & Partial<ContentTocItem>, 'text'>;
       'p-img': WithChildren<ContentImage, 'image'> & Src;
       'p-qr': WithChildren<ContentQr, 'qr'>;
       'p-col': WithChildren<ContentColumns, 'columns'>;
-      'p-table': WithChildren<ContentTable, 'table'> & Omit<Table, 'body'>;
+      'p-table': WithChildren<Table & Partial<ContentTable>, 'body'>;
       'p-tr': WithChildren<ContentStack, 'stack'>;
       'p-th': WithChildren<ContentStack, 'stack'>;
       'p-td': WithChildren<ContentStack, 'stack'>;
       'p-ol': WithChildren<ContentOrderedList, 'ol'>;
       'p-ul': WithChildren<ContentUnorderedList, 'ul'>;
       'p-svg': IntrinsicElements['svg'];
-      'p-link': WithChildren<ContentLink, 'table'> & Src;
+      'p-link': WithChildren<ContentLink, 'link'> & Src;
       'p-stack': WithChildren<ContentStack, 'stack'>;
+      'p-toc': WithChildren<TableOfContent, 'title'>;
       'p-document': WithChildren<TDocumentDefinitions, 'content'>;
     }
   }

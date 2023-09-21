@@ -7,6 +7,6 @@ export const ulHandler: Handler = (element) => {
   const { children, ...rest } = element.props;
   return {
     ...rest,
-    ul: parseElement(children),
+    ul: [].concat(parseElement(children) as any),
   };
 };

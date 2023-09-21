@@ -8,6 +8,6 @@ export const olHandler: Handler = (element) => {
   const { children, ...rest } = element.props;
   return {
     ...rest,
-    ol: parseElement(children),
+    ol: [].concat(parseElement(children) as any),
   };
 };
