@@ -1,6 +1,6 @@
 {
   "name": "react-jsx2pdf",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.2",
   "description": "react-jsx2pdf",
   "keywords": [
     "pdf",
@@ -60,16 +60,13 @@
   },
   "dependencies": {
     "@types/pdfmake": ">=0.2.2",
-    "pdfmake": "^2.0.0 || ^3.0.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "pdfmake": "^0.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.15",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/jest": "^29.5.5",
-    "@types/pdfmake": "^0.2.2",
     "@umijs/lint": "^4.0.0",
     "dumi": "^2.0.2",
     "eslint": "^8.23.0",
