@@ -1,4 +1,9 @@
 import {
+  CanvasEllipse,
+  CanvasLine,
+  CanvasPolyline,
+  CanvasRect,
+  ContentCanvas,
   ContentColumns,
   ContentImage,
   ContentLink,
@@ -46,6 +51,11 @@ declare global {
       'p-link': WithChildren<ContentLink, 'link'> & Src;
       'p-stack': WithChildren<ContentStack, 'stack'>;
       'p-toc': WithChildren<TableOfContent, 'title'>;
+      'p-canvas': WithChildren<ContentCanvas, 'canvas'>;
+      'p-rect': WithChildren<CanvasRect, 'type'>;
+      'p-line': WithChildren<CanvasLine, 'type'>;
+      'p-ellipse': WithChildren<CanvasEllipse, 'type'>;
+      'p-polyline': WithChildren<CanvasPolyline, 'type'>;
       'p-document': WithChildren<TDocumentDefinitions, 'content'>;
     }
   }

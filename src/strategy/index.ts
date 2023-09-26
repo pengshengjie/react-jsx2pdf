@@ -1,3 +1,9 @@
+import {
+  canvasChildrenHandler,
+  canvasChildrenRule,
+  canvasHandler,
+  canvasRule,
+} from './canvas';
 import { colHandler, colRule } from './columns';
 import { docHandler, docRule } from './document';
 import { imgHandler, imgRule } from './img';
@@ -35,6 +41,8 @@ strategy.set(linkRule, linkHandler);
 strategy.set(svgRule, svgHandler);
 strategy.set(qrRule, qrHandler);
 strategy.set(tocRule, tocHandler);
+strategy.set(canvasRule, canvasHandler);
+strategy.set(canvasChildrenRule, canvasChildrenHandler);
 
 export const registerStrategy = (rule: Rule, handler: Handler) => {
   strategy.set(rule, handler);

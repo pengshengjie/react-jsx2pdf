@@ -15,15 +15,29 @@ const jsx = (
     }}
   >
     <p-col>
-      <p-table>
-        <p-tr>
-          <p-td>3</p-td>
-        </p-tr>
-        <p-tr>
-          <p-td>2</p-td>
-        </p-tr>
-      </p-table>
-      <p-text>321</p-text>
+      <p-canvas>
+        <p-rect x={1} y={1} w={30} h={30} color="red"></p-rect>
+        <p-rect x={30} y={30} w={60} h={60} color="green"></p-rect>
+      </p-canvas>
+      <p-canvas>
+        <p-ellipse x={30} y={30} r1={30} color="#f0f"></p-ellipse>
+        <p-polyline
+          points={[
+            { x: 30, y: 30 },
+            { x: 60, y: 30 },
+            { x: 45, y: 45 },
+          ]}
+          color="blue"
+        ></p-polyline>
+        <p-line
+          x1={30}
+          y1={90}
+          x2={150}
+          y2={90}
+          lineColor="red"
+          lineWidth={10}
+        ></p-line>
+      </p-canvas>
     </p-col>
   </p-document>
 );
