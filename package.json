@@ -1,6 +1,6 @@
 {
   "name": "react-jsx2pdf",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react-jsx2pdf",
   "keywords": [
     "pdf",
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@types/pdfmake": ">=0.2.2",
-    "pdfmake": "^0.0.0"
+    "pdfmake": ">=0.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.15",
