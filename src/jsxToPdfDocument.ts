@@ -3,14 +3,14 @@ import { strategy } from './strategy';
 import { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
 import { ReactElement } from 'react';
 
-export function flatJSXElement(jsx: undefined): undefined;
-export function flatJSXElement(jsx: ReactElement): ReactElement;
-export function flatJSXElement(jsx: ReactElement[]): ReactElement[];
-export function flatJSXElement(jsx: any) {
+export function flatJSXElement(jsx: undefined, ctx?: any): undefined;
+export function flatJSXElement(jsx: ReactElement, ctx?: any): ReactElement;
+export function flatJSXElement(jsx: ReactElement[], ctx?: any): ReactElement[];
+export function flatJSXElement(jsx: any, ctx: any) {
   if (typeof jsx !== 'object' && jsx !== null) {
     return jsx || '';
   } else if (Array.isArray(jsx)) {
-    return jsx.map((j) => flatJSXElement(j));
+    return jsx.map((j) => flatJSXElement(j, ctx));
   } else if (typeof jsx.type === 'string') {
     if (!jsx.type.startsWith('p-')) {
       throw new Error(
@@ -21,13 +21,13 @@ export function flatJSXElement(jsx: any) {
       ...jsx,
       props: {
         ...jsx.props,
-        children: flatJSXElement(jsx.props.children),
+        children: flatJSXElement(jsx.props.children, ctx),
       },
     };
   } else if (typeof jsx.type === 'function') {
-    return flatJSXElement(jsx.type(jsx.props));
+    return flatJSXElement(jsx.type(jsx.props, ctx), ctx);
   } else if (jsx.type === Symbol.for('react.fragment')) {
-    return flatJSXElement(jsx.props.children);
+    return flatJSXElement(jsx.props.children, ctx);
   }
 }
 
@@ -47,7 +47,12 @@ export function parseElement(element: ReactElement | ReactElement[]): Content {
   }
   return undefined as unknown as Content;
 }
-export function jsxToPdfDocument(element: ReactElement): TDocumentDefinitions {
-  const jsx = flatJSXElement(element);
+
+type Option = {
+  ctx: any
+}
+
+export function jsxToPdfDocument(element: ReactElement, option?: Option): TDocumentDefinitions {
+  const jsx = flatJSXElement(element, option?.ctx || {});
   return parseElement(jsx) as unknown as TDocumentDefinitions;
 }
