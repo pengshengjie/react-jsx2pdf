@@ -7,7 +7,7 @@ export function flatJSXElement(jsx: undefined, ctx?: any): undefined;
 export function flatJSXElement(jsx: ReactElement, ctx?: any): ReactElement;
 export function flatJSXElement(jsx: ReactElement[], ctx?: any): ReactElement[];
 export function flatJSXElement(jsx: any, ctx: any) {
-  if (typeof jsx !== 'object' && jsx !== null) {
+  if (!(typeof jsx === 'object' && jsx !== null)) {
     return jsx || '';
   } else if (Array.isArray(jsx)) {
     return jsx.map((j) => flatJSXElement(j, ctx));
