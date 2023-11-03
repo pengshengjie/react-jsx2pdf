@@ -383,7 +383,7 @@ const doc = <p-document>
 </p-document>
 ```
 
-### use context
+## use context
 
 ```jsx
 import { jsxToPdfDocument } from 'react-jsx2pdf';
