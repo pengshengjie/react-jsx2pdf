@@ -383,6 +383,19 @@ const doc = <p-document>
 </p-document>
 ```
 
+### use context
+
+```jsx
+import { jsxToPdfDocument } from 'react-jsx2pdf';
+const ctx = {name: 'test'}
+console.log(jsxToPdfDocument(doc, {ctx}));
+
+const Text = (_, ctx) => {
+  return <p-text>{ctx.name}</p-text>
+}
+
+```
+
 ## License
 
 MIT
